@@ -1,0 +1,24 @@
+1 method 
+By Xpath if you want to select a specific button 
+
+ driver.findElement(By.xpath("//input[@value='RoundTrip']")).click();
+ 
+2 method using for loop 
+If you want to click on all buttons one by one 
+
+ List<WebElement> radiobuttons = driver.findElements(By.xpath("//input[@name='ctl00$mainContent$rbtnl_Trip']"));
+  
+		int count = radiobuttons.size();
+		
+		for (int i=0; i<count;i++)
+		{
+         driver.findElements(By.xpath("//input[@name='ctl00$mainContent$rbtnl_Trip']")).get(i).click();
+         
+If you want to have output of all values 
+System.out.println(driver.findElements(By.xpath("//input[@name='ctl00$mainContent$rbtnl_Trip']")).get(i).getAttribute("value"));
+  
+  If you search by value text 
+  String text = driver.findElements(By.xpath("//input[@name='ctl00$mainContent$rbtnl_Trip']")).get(i).getAttribute("value");
+			if(text.equals("RoundTrip"))
+         {
+		radiobuttons.get(i).click();
